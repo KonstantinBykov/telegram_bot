@@ -1,4 +1,5 @@
-#@title Полный код бота для самоконтроля
+#@title Полный код бота для самоконтроля 
+# Строка для теста
 import aiosqlite
 import asyncio
 import logging
