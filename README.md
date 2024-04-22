@@ -1,19 +1,19 @@
-# Включаем логирование, чтобы не пропустить важные сообщения
+### Включаем логирование, чтобы не пропустить важные сообщения
 logging.basicConfig(level=logging.INFO)
 
-# Замените "YOUR_BOT_TOKEN" на токен, который вы получили от BotFather
+### Замените "YOUR_BOT_TOKEN" на токен, который вы получили от BotFather
 API_TOKEN = 'YOUR_BOT_TOKEN'
 
-# Объект бота
+### Объект бота
 bot = Bot(token=API_TOKEN)
-# Диспетчер
+### Диспетчер
 dp = Dispatcher()
 
-# Зададим имя базы данных
+### Зададим имя базы данных
 DB_NAME = 'quiz_bot.db'
 
 
-# Структура квиза
+### Структура квиза
 quiz_data = [
     {
         'question': 'Что такое Python?',
@@ -25,7 +25,6 @@ quiz_data = [
         'options': ['int', 'float', 'str', 'natural'],
         'correct_option': 0
     },
-    # Добавьте другие вопросы
 ]
 
 
@@ -90,7 +89,7 @@ async def wrong_answer(callback: types.CallbackQuery):
         await callback.message.answer("Это был последний вопрос. Квиз завершен!")
 
 
-# Хэндлер на команду /start
+### Хэндлер на команду /start
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
     builder = ReplyKeyboardBuilder()
@@ -137,7 +136,7 @@ async def update_quiz_index(user_id, index):
         await db.commit()
 
 
-# Хэндлер на команду /quiz
+### Хэндлер на команду /quiz
 @dp.message(F.text=="Начать игру")
 @dp.message(Command("quiz"))
 async def cmd_quiz(message: types.Message):
@@ -157,7 +156,7 @@ async def create_table():
 
 
 
-# Запуск процесса поллинга новых апдейтов
+### Запуск процесса поллинга новых апдейтов
 async def main():
 
     # Запускаем создание таблицы базы данных
