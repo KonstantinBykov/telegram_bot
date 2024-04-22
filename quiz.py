@@ -17,7 +17,7 @@ API_TOKEN = '7194374819:AAEBWkouuppz1L3j2HnsEI4MEvXasQPc4Qw'
 # Зададим имя базы данных
 DB_NAME = 'quiz_bot.db'
 
-DICT_DATA = 'quiz_data.json'
+DICT_DATA = 'table.json'
 
 # Объект бота
 bot = Bot(token=API_TOKEN)
@@ -181,6 +181,8 @@ async def cmd_start(message: types.Message):
 
 # Запуск процесса поллинга новых апдейтов
 async def main():
+
+    await bot.delete_webhook(drop_pending_updates=True)
 
     # Запускаем создание таблицы базы данных
     await create_table()

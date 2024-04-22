@@ -1,5 +1,7 @@
 import json
-DICT_DATA = 'quiz_data'
+
+DICT_DATA = 'table.json'
+
 quiz_data = [
     {
         'question': 'Что такое Python?',
